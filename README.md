@@ -23,5 +23,19 @@ A reminder that if you plan to use `.*` in your regular expression, you'll
 want to wrap that argument in single-quotes to prevent filepath expansion of
 the `*`.
 
+So, for example:
 
+```
+$ ./find_password.pl --userregex 'userid@.*'
+Amazon -- userid@mydomain.com -- hunter2
+GMail -- userid@gmail.com -- 123456
+eBay -- userid@mydomain.com -- drowssap
+```
+
+or, for the example I gave earlier:
+
+```
+$ ./find_password.pl --pwregex 'q8!.*'
+FictionalSite -- userid@mydomain.com -- q8!*sadoiu%s2
+```
 
