@@ -13,6 +13,12 @@ GetOptions (
     'help' => \$help,
     );
 
+if ( ( $pwregex eq '.*' ) and ( $userregex eq '.*' ) )
+{
+    print STDERR "Error: a regex argument must be provided.\n";
+    $help = 1;
+}
+
 if ($help)
 {
     print STDERR "--pwregex   -- regular expression pattern to try to match to the password\n";
@@ -20,6 +26,7 @@ if ($help)
     print STDERR "--help      -- this help.\n";
     exit;
 }
+
 
 my $command = 'op item list --categories Login --format=json | op item get - --reveal';
 
